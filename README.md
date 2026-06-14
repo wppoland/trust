@@ -1,52 +1,36 @@
 # Trust - Trust Badges for WooCommerce
 
-Show trust and secure-checkout badges to boost buyer confidence and conversions.
+Trust adds a row of reassuring trust and secure-checkout badges next to the add-to-cart button,
+with a short heading such as "Guaranteed safe checkout". It is pure presentation: bundled inline
+SVGs plus optional custom image uploads, served entirely from your own site — no external requests,
+no tracking.
 
-Trust adds a row of reassuring trust / secure-checkout badges next to the
-add-to-cart button (and optionally on cart and checkout), with a short heading
-such as "Guaranteed safe checkout". It is **pure presentation**: bundled inline
-SVGs plus optional custom image uploads, served entirely from your own site —
-no external requests, no tracking.
+## Features
 
-## Features (FREE)
+- A curated set of bundled inline SVG badges (secure checkout, SSL, money-back, verified, free
+  shipping, card, wallet, support, privacy, satisfaction) that inherit your colour via `currentColor`.
+- Optional custom image badges uploaded from the media library.
+- Configurable heading, or icons only.
+- Placement on the single product page, cart, checkout, and the `[trust_badges]` shortcode.
+- Appearance controls: alignment, icon size, colour and optional text labels.
+- A live preview on the settings screen.
+- CSS-only storefront output — no JavaScript, no layout shift.
 
-- A curated set of bundled **inline SVG** trust badges (secure checkout, SSL,
-  money-back, verified, free shipping, card, wallet, support, privacy,
-  satisfaction). They inherit your chosen colour via `currentColor`.
-- Optional **custom image badges** uploaded from the media library.
-- Configurable **heading** (or icons only).
-- **Placement**: single product (before / after add-to-cart, or end of summary),
-  cart, checkout, and the `[trust_badges]` shortcode.
-- **Appearance**: alignment, icon size, colour, optional text labels.
-- A **live preview** on the settings screen.
-- CSS-only storefront output — **no JavaScript, no layout shift**.
+## Installation
 
-## Architecture
+1. Upload the plugin to `/wp-content/plugins/trust`, or install it via Plugins → Add New.
+2. Activate it. WooCommerce must be installed and active.
+3. Visit WooCommerce → Trust Badges to choose your badges, heading and placement.
 
-- **Bootstrap** (`trust.php`): PHP/WooCommerce guards, HPOS + cart-blocks compat,
-  `init` priority 0 boot, `do_action('trust/booted')` fired from `Plugin::boot()`
-  (the hook a PRO companion extends). No translation calls at `plugins_loaded`.
-- **Autoload** (`autoload.php`): Composer vendor autoloader + PSR-4 fallback.
-  Self-contained — no shared kit dependency.
-- **DI**: `src/Plugin.php` singleton + `src/Container.php` (with `has()`);
-  services in `config/services.php`, boot order in `config/hooks.php`, defaults in
-  `config/defaults.php`; idempotent `src/Migrator.php` seeds defaults.
-- **Badges**: `src/Badges/BadgeLibrary.php` is the single source of truth for the
-  bundled SVGs; `src/Service/BadgesService.php` renders the row; the template
-  lives in `templates/badges.php`.
-- **Admin**: `src/Admin/Settings.php` registers a WooCommerce submenu page.
-- **Quality**: `phpcs.xml.dist` (WPCS), `phpstan.neon.dist` (level 6 + WC stubs),
-  `.distignore`, `.wp-env.json`, bundled `languages/trust.pot`.
+## Frequently Asked Questions
 
-## Development
+**Does it require WooCommerce?**
+Yes. Trust requires an active WooCommerce installation.
 
-```bash
-composer install
-composer cs        # PHPCS
-composer analyse   # PHPStan level 6
-```
+**Does it load anything from third-party servers?**
+No. All bundled badges are inline SVGs served from your own site. Custom badges you upload are
+served from your media library.
 
-## PRO companion
+Built by WPPoland — https://plogins.com
 
-`trust-pro` (separate private repo) boots via `add_action('trust/booted', …)`
-and adds premium badge features.
+License: GPL-2.0-or-later
