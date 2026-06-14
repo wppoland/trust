@@ -1,0 +1,343 @@
+/**
+ * Trust — admin settings screen.
+ *
+ * A polished, themeable layer over the WordPress settings UI. Tokens live under
+ * --trust-a-* so the look can be tuned in one place. Transitions are gated
+ * behind prefers-reduced-motion and colours adapt to the admin colour scheme.
+ */
+
+.trust-admin {
+	--trust-a-accent: #2271b1;
+	--trust-a-radius: 10px;
+	--trust-a-radius-sm: 6px;
+	--trust-a-gap: clamp(1rem, 2vw, 1.5rem);
+	--trust-a-card-bg: #fff;
+	--trust-a-card-border: #dcdcde;
+	--trust-a-muted: #646970;
+	--trust-a-help-bg: #2c3338;
+	--trust-a-help-fg: #fff;
+
+	max-inline-size: 1180px;
+}
+
+/* Intro card. */
+.trust-admin__intro {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+	margin-block: 1rem 1.5rem;
+	padding: clamp(1rem, 2.5vw, 1.5rem);
+	background: var(--trust-a-card-bg);
+	border: 1px solid var(--trust-a-card-border);
+	border-inline-start: 4px solid var(--trust-a-accent);
+	border-radius: var(--trust-a-radius);
+}
+
+.trust-admin__intro-icon {
+	flex: 0 0 auto;
+	inline-size: 40px;
+	block-size: 40px;
+	color: var(--trust-a-accent);
+}
+
+.trust-admin__intro-icon svg {
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.trust-admin__intro h2 {
+	margin: 0;
+	font-size: 1.05rem;
+}
+
+.trust-admin__intro p {
+	margin: 0.25rem 0 0;
+	max-inline-size: 70ch;
+	color: var(--trust-a-muted);
+}
+
+/* Two-column layout: settings + sticky live preview. */
+.trust-admin__layout {
+	display: grid;
+	gap: var(--trust-a-gap);
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 1100px) {
+	.trust-admin__layout {
+		grid-template-columns: minmax(0, 1fr) 320px;
+		align-items: start;
+	}
+}
+
+/* Section cards. */
+.trust-card {
+	margin: 0 0 var(--trust-a-gap);
+	padding: clamp(1rem, 2.5vw, 1.5rem);
+	background: var(--trust-a-card-bg);
+	border: 1px solid var(--trust-a-card-border);
+	border-radius: var(--trust-a-radius);
+}
+
+.trust-card > h2 {
+	margin-block-start: 0;
+}
+
+.trust-card__intro {
+	max-inline-size: 70ch;
+	margin-block-start: 0;
+	color: var(--trust-a-muted);
+}
+
+.trust-card .form-table {
+	margin-block-start: 0.25rem;
+}
+
+/* Badge picker grid. */
+.trust-badge-picker {
+	display: grid;
+	gap: 0.6rem;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.trust-badge-option {
+	display: flex;
+	gap: 0.6rem;
+	align-items: center;
+	padding: 0.6rem 0.75rem;
+	background: #f6f7f7;
+	border: 1px solid var(--trust-a-card-border);
+	border-radius: var(--trust-a-radius-sm);
+	cursor: pointer;
+}
+
+.trust-badge-option:has(input:checked) {
+	border-color: var(--trust-a-accent);
+	box-shadow: inset 0 0 0 1px var(--trust-a-accent);
+}
+
+.trust-badge-option:focus-within {
+	outline: 2px solid var(--trust-a-accent);
+	outline-offset: 2px;
+}
+
+.trust-badge-option__icon {
+	flex: 0 0 auto;
+	inline-size: 28px;
+	block-size: 28px;
+	color: #3c4858;
+}
+
+.trust-badge-option__icon svg {
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.trust-badge-option__label {
+	font-size: 0.9rem;
+}
+
+/* Custom image badges. */
+.trust-custom__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 0 0 0.75rem;
+	padding: 0;
+	list-style: none;
+}
+
+.trust-custom__item {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 84px;
+	block-size: 56px;
+	padding: 4px;
+	background: #f6f7f7;
+	border: 1px solid var(--trust-a-card-border);
+	border-radius: var(--trust-a-radius-sm);
+}
+
+.trust-custom__item img {
+	max-inline-size: 100%;
+	max-block-size: 100%;
+	object-fit: contain;
+}
+
+.trust-custom__remove {
+	position: absolute;
+	inset-block-start: -8px;
+	inset-inline-end: -8px;
+	inline-size: 20px;
+	block-size: 20px;
+	padding: 0;
+	font-size: 14px;
+	line-height: 1;
+	color: #fff;
+	background: #b32d2e;
+	border: 0;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.trust-custom__remove:focus-visible {
+	outline: 2px solid var(--trust-a-accent);
+	outline-offset: 2px;
+}
+
+/* Inline help affordance. */
+.trust-help {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 18px;
+	block-size: 18px;
+	margin-inline-start: 6px;
+	padding: 0;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+	color: var(--trust-a-help-fg);
+	background: var(--trust-a-muted);
+	border: 0;
+	border-radius: 50%;
+	cursor: help;
+	vertical-align: middle;
+}
+
+.trust-help:hover,
+.trust-help:focus-visible {
+	background: var(--trust-a-accent);
+}
+
+.trust-help:focus-visible {
+	outline: 2px solid var(--trust-a-accent);
+	outline-offset: 2px;
+}
+
+.trust-tip {
+	max-inline-size: 280px;
+	margin: 0;
+	padding: 0.6rem 0.75rem;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--trust-a-help-fg);
+	background: var(--trust-a-help-bg);
+	border: 0;
+	border-radius: var(--trust-a-radius-sm);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.trust-tip[popover] {
+	inset: unset;
+	position: absolute;
+}
+
+/* Live preview panel. */
+.trust-preview {
+	position: sticky;
+	inset-block-start: 46px;
+	padding: clamp(1rem, 2.5vw, 1.5rem);
+	background: var(--trust-a-card-bg);
+	border: 1px solid var(--trust-a-card-border);
+	border-radius: var(--trust-a-radius);
+}
+
+.trust-preview__title {
+	margin-block-start: 0;
+	font-size: 1rem;
+}
+
+.trust-preview__stage {
+	display: grid;
+	gap: 0.6rem;
+	justify-items: start;
+	min-block-size: 120px;
+	margin-block: 0.75rem;
+	padding: 1rem;
+	background: #fff;
+	border: 1px dashed var(--trust-a-card-border);
+	border-radius: var(--trust-a-radius-sm);
+}
+
+.trust-preview__heading {
+	margin: 0;
+	font-size: 0.78rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #3c4858;
+	opacity: 0.85;
+}
+
+.trust-preview__heading:empty {
+	display: none;
+}
+
+.trust-preview__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.trust-preview__list svg {
+	inline-size: 34px;
+	block-size: 34px;
+	color: #3c4858;
+}
+
+.trust-preview__list img {
+	block-size: 34px;
+	inline-size: auto;
+	object-fit: contain;
+}
+
+.trust-preview__empty {
+	margin: 0;
+	color: var(--trust-a-muted);
+}
+
+.trust-preview__hint {
+	margin: 0;
+	font-size: 12px;
+	color: var(--trust-a-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.trust-help,
+	.trust-badge-option {
+		transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.trust-admin {
+		--trust-a-card-bg: #1e1e1e;
+		--trust-a-card-border: #3c434a;
+		--trust-a-muted: #a7aaad;
+	}
+
+	.trust-badge-option,
+	.trust-custom__item {
+		background: #2c3338;
+	}
+
+	.trust-preview__stage {
+		background: #2c3338;
+	}
+
+	.trust-badge-option__icon,
+	.trust-preview__heading,
+	.trust-preview__list svg {
+		color: #d6e3ff;
+	}
+}

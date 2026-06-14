@@ -1,0 +1,114 @@
+/**
+ * Trust — storefront badge row.
+ *
+ * CSS-only, no layout shift. Sizes/colours are driven by custom properties so a
+ * single inline override (the merchant's chosen colour) themes the whole row.
+ * Motion is gated behind prefers-reduced-motion.
+ */
+
+.trust-badges {
+	--trust-icon-color: #3c4858;
+	--trust-icon-size: 34px;
+	--trust-gap: 0.9rem;
+	--trust-radius: 10px;
+
+	margin-block: 1.1rem;
+}
+
+.trust-badges--size-small {
+	--trust-icon-size: 26px;
+	--trust-gap: 0.65rem;
+}
+
+.trust-badges--size-large {
+	--trust-icon-size: 46px;
+	--trust-gap: 1.15rem;
+}
+
+.trust-badges__heading {
+	margin: 0 0 0.6rem;
+	font-size: 0.82rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--trust-icon-color);
+	opacity: 0.85;
+}
+
+.trust-badges__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--trust-gap);
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.trust-badges--align-center {
+	text-align: center;
+}
+
+.trust-badges--align-center .trust-badges__list {
+	justify-content: center;
+}
+
+.trust-badges--align-right {
+	text-align: right;
+}
+
+.trust-badges--align-right .trust-badges__list {
+	justify-content: flex-end;
+}
+
+.trust-badge {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.3rem;
+	margin: 0;
+}
+
+.trust-badge__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: var(--trust-icon-size);
+	block-size: var(--trust-icon-size);
+	color: var(--trust-icon-color);
+}
+
+.trust-badge__icon svg {
+	inline-size: 100%;
+	block-size: 100%;
+	display: block;
+}
+
+.trust-badge__image {
+	block-size: var(--trust-icon-size);
+	inline-size: auto;
+	max-inline-size: calc(var(--trust-icon-size) * 2.4);
+	object-fit: contain;
+	border-radius: var(--trust-radius);
+}
+
+.trust-badge__label {
+	font-size: 0.7rem;
+	line-height: 1.2;
+	text-align: center;
+	color: var(--trust-icon-color);
+	opacity: 0.85;
+	max-inline-size: 9ch;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.trust-badge__icon,
+	.trust-badge__image {
+		transition: transform 0.18s ease, opacity 0.18s ease;
+	}
+
+	.trust-badge:hover .trust-badge__icon,
+	.trust-badge:hover .trust-badge__image {
+		transform: translateY(-1px);
+	}
+}
