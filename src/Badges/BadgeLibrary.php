@@ -84,16 +84,6 @@ final class BadgeLibrary
         return self::$badges;
     }
 
-    /**
-     * The list of valid badge slugs.
-     *
-     * @return list<string>
-     */
-    public static function slugs(): array
-    {
-        return array_keys(self::all());
-    }
-
     public static function has(string $slug): bool
     {
         return array_key_exists($slug, self::all());
@@ -117,15 +107,5 @@ final class BadgeLibrary
         $badges = self::all();
 
         return $badges[$slug]['label'] ?? $slug;
-    }
-
-    /**
-     * The default selection shown on a fresh install.
-     *
-     * @return list<string>
-     */
-    public static function defaultSelection(): array
-    {
-        return ['secure_checkout', 'ssl_encrypted', 'money_back', 'card_payment'];
     }
 }

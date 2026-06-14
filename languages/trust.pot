@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-14T14:35:55+00:00\n"
+"POT-Creation-Date: 2026-06-14T21:47:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: trust\n"
@@ -48,40 +48,56 @@ msgstr ""
 msgid "Trust Badges"
 msgstr ""
 
-#: src/Admin/Settings.php:135
+#: src/Admin/Settings.php:122
 msgid "Reassure shoppers at the moment they decide to buy"
 msgstr ""
 
-#: src/Admin/Settings.php:136
-msgid "Trust shows a row of secure-checkout and payment badges with a short heading next to the add-to-cart button. Pick the badges, write the heading and choose where it appears — hover a “?” for a quick explanation."
+#: src/Admin/Settings.php:123
+msgid "Trust shows a row of secure-checkout badges with a short heading after the add-to-cart button. Pick the badges, write the heading and choose the colour."
 msgstr ""
 
-#: src/Admin/Settings.php:147
+#: src/Admin/Settings.php:131
 msgid "General"
 msgstr ""
 
-#: src/Admin/Settings.php:152
+#: src/Admin/Settings.php:135
 msgid "Enable trust badges"
 msgstr ""
 
-#: src/Admin/Settings.php:153
-msgid "Master switch. When off, no badges and no stylesheet load anywhere and the storefront is completely unaffected."
-msgstr ""
-
-#: src/Admin/Settings.php:158
+#: src/Admin/Settings.php:139
 msgid "Show the trust-badge row on the storefront."
 msgstr ""
 
-#: src/Admin/Settings.php:164
+#: src/Admin/Settings.php:141
+msgid "When off, no badges and no stylesheet load anywhere — the storefront is completely unaffected."
+msgstr ""
+
+#: src/Admin/Settings.php:145
+msgid "Show on product pages"
+msgstr ""
+
+#: src/Admin/Settings.php:149
+msgid "Show the badge row after the add-to-cart button on single product pages."
+msgstr ""
+
+#: src/Admin/Settings.php:151
+msgid "You can also place the row anywhere with the [trust_badges] shortcode."
+msgstr ""
+
+#: src/Admin/Settings.php:156
 msgid "Heading"
 msgstr ""
 
-#: src/Admin/Settings.php:165
+#: src/Admin/Settings.php:160
 msgid "Short reassurance shown above the badges, e.g. “Guaranteed safe checkout”. Leave empty to show only the icons."
 msgstr ""
 
+#: src/Admin/Settings.php:165
+msgid "Icon colour"
+msgstr ""
+
 #: src/Admin/Settings.php:169
-msgid "Leave empty to hide the heading and show only the badge icons."
+msgid "Colour for the bundled SVG icons and heading."
 msgstr ""
 
 #: src/Admin/Settings.php:177
@@ -94,155 +110,6 @@ msgstr ""
 
 #: src/Admin/Settings.php:181
 msgid "Bundled badges"
-msgstr ""
-
-#: src/Admin/Settings.php:199
-msgid "Custom image badges"
-msgstr ""
-
-#: src/Admin/Settings.php:200
-msgid "Optionally add your own badge images (payment provider logos you are licensed to use, accreditations, etc.). They appear after the bundled badges."
-msgstr ""
-
-#: src/Admin/Settings.php:214
-#: src/Admin/Settings.php:227
-msgid "Remove this badge"
-msgstr ""
-
-#: src/Admin/Settings.php:220
-msgid "Add image badge"
-msgstr ""
-
-#: src/Admin/Settings.php:234
-msgid "Placement"
-msgstr ""
-
-#: src/Admin/Settings.php:239
-msgid "Single product page"
-msgstr ""
-
-#: src/Admin/Settings.php:240
-msgid "Show the badge row on single product pages. This is where it does the most work — right where shoppers decide to buy."
-msgstr ""
-
-#: src/Admin/Settings.php:245
-msgid "Show on single product pages."
-msgstr ""
-
-#: src/Admin/Settings.php:251
-msgid "Product position"
-msgstr ""
-
-#: src/Admin/Settings.php:252
-msgid "Where the row sits relative to the add-to-cart form. “After add to cart” is the most common and effective placement."
-msgstr ""
-
-#: src/Admin/Settings.php:257
-msgid "After add-to-cart button"
-msgstr ""
-
-#: src/Admin/Settings.php:258
-msgid "Before add-to-cart button"
-msgstr ""
-
-#: src/Admin/Settings.php:259
-msgid "End of product summary"
-msgstr ""
-
-#: src/Admin/Settings.php:265
-msgid "Cart page"
-msgstr ""
-
-#: src/Admin/Settings.php:266
-msgid "Also show the badges beneath the cart totals, reassuring shoppers as they head to checkout."
-msgstr ""
-
-#: src/Admin/Settings.php:271
-msgid "Show on the cart page."
-msgstr ""
-
-#: src/Admin/Settings.php:277
-msgid "Checkout page"
-msgstr ""
-
-#: src/Admin/Settings.php:278
-msgid "Show the badges in the checkout order review, right by the payment step."
-msgstr ""
-
-#: src/Admin/Settings.php:283
-msgid "Show on the checkout page."
-msgstr ""
-
-#: src/Admin/Settings.php:292
-msgid "Appearance"
-msgstr ""
-
-#: src/Admin/Settings.php:297
-msgid "Alignment"
-msgstr ""
-
-#: src/Admin/Settings.php:302
-msgid "Left"
-msgstr ""
-
-#: src/Admin/Settings.php:303
-msgid "Center"
-msgstr ""
-
-#: src/Admin/Settings.php:304
-msgid "Right"
-msgstr ""
-
-#: src/Admin/Settings.php:310
-msgid "Icon size"
-msgstr ""
-
-#: src/Admin/Settings.php:315
-msgid "Small"
-msgstr ""
-
-#: src/Admin/Settings.php:316
-msgid "Medium"
-msgstr ""
-
-#: src/Admin/Settings.php:317
-msgid "Large"
-msgstr ""
-
-#: src/Admin/Settings.php:323
-msgid "Icon colour"
-msgstr ""
-
-#: src/Admin/Settings.php:324
-msgid "Colour for the bundled SVG icons and heading. Custom image badges keep their own colours."
-msgstr ""
-
-#: src/Admin/Settings.php:332
-msgid "Show labels"
-msgstr ""
-
-#: src/Admin/Settings.php:333
-msgid "Print each badge’s short text label beneath its icon. Off by default for a cleaner row."
-msgstr ""
-
-#: src/Admin/Settings.php:338
-msgid "Show a text label under each badge."
-msgstr ""
-
-#: src/Admin/Settings.php:351
-msgid "Live preview"
-msgstr ""
-
-#: src/Admin/Settings.php:355
-msgid "Select at least one badge to preview it here."
-msgstr ""
-
-#: src/Admin/Settings.php:357
-msgid "Updates as you change the settings. Save to apply on your storefront."
-msgstr ""
-
-#: src/Admin/Settings.php:377
-msgid "More information"
 msgstr ""
 
 #: src/Badges/BadgeLibrary.php:43
@@ -287,12 +154,4 @@ msgstr ""
 
 #: trust.php:47
 msgid "Trust - Trust Badges for WooCommerce requires WooCommerce to be active."
-msgstr ""
-
-#: assets/js/admin.js:99
-msgid "Select badge image"
-msgstr ""
-
-#: assets/js/admin.js:100
-msgid "Use this image"
 msgstr ""

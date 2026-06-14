@@ -12,11 +12,11 @@ defined('ABSPATH') || exit;
 /**
  * Renders the trust-badge row on the storefront.
  *
- * Pure presentation: it reads the merchant's settings, builds the list of badges
- * to show (bundled inline SVGs plus any custom uploaded images) and prints an
- * accessible, CSS-only group near the add-to-cart button — and optionally on the
- * cart and checkout. It never makes external requests and renders nothing when
- * disabled, misconfigured, or when no badges are selected (no broken output).
+ * Pure presentation: it reads the merchant's settings, builds the list of
+ * bundled inline-SVG badges to show and prints an accessible, CSS-only group
+ * after the add-to-cart button on single product pages (and anywhere via the
+ * `[trust_badges]` shortcode). It never makes external requests and renders
+ * nothing when disabled or when no badges are selected (no broken output).
  */
 final class BadgesService implements HasHooks
 {
@@ -37,34 +37,7 @@ final class BadgesService implements HasHooks
         add_shortcode(self::SHORTCODE, [$this, 'renderShortcode']);
 
         if (! empty($settings['show_on_product'])) {
-            $this->hookProductPlacement((string) ($settings['product_position'] ?? 'after_add_to_cart'));
-        }
-
-        if (! empty($settings['show_on_cart'])) {
-            add_action('woocommerce_after_cart_totals', [$this, 'renderRow']);
-        }
-
-        if (! empty($settings['show_on_checkout'])) {
-            add_action('woocommerce_review_order_after_payment', [$this, 'renderRow']);
-        }
-    }
-
-    /**
-     * Attach the single-product placement to the chosen WooCommerce hook.
-     */
-    private function hookProductPlacement(string $position): void
-    {
-        switch ($position) {
-            case 'before_add_to_cart':
-                add_action('woocommerce_before_add_to_cart_form', [$this, 'renderRow']);
-                break;
-            case 'after_summary':
-                add_action('woocommerce_single_product_summary', [$this, 'renderRow'], 45);
-                break;
-            case 'after_add_to_cart':
-            default:
-                add_action('woocommerce_after_add_to_cart_form', [$this, 'renderRow']);
-                break;
+            add_action('woocommerce_after_add_to_cart_form', [$this, 'renderRow']);
         }
     }
 
@@ -75,13 +48,12 @@ final class BadgesService implements HasHooks
     {
         $settings = $this->settings();
 
-        $needed =
-            (! empty($settings['show_on_product']) && function_exists('is_product') && is_product())
-            || (! empty($settings['show_on_cart']) && function_exists('is_cart') && is_cart())
-            || (! empty($settings['show_on_checkout']) && function_exists('is_checkout') && is_checkout());
+        $needed = ! empty($settings['show_on_product'])
+            && function_exists('is_product')
+            && is_product();
 
-        // The shortcode can appear anywhere; enqueue on demand from renderRow()
-        // too, but registering here keeps the common storefront paths covered.
+        // The shortcode can appear anywhere; register here so it is available,
+        // and enqueue on demand from renderRow() when the row actually prints.
         if (! $needed) {
             wp_register_style('trust-badges', \TRUST_URL . 'assets/css/badges.css', [], \Trust\VERSION);
             return;
@@ -134,11 +106,8 @@ final class BadgesService implements HasHooks
         }
 
         $context = [
-            'heading'     => (string) ($settings['heading'] ?? ''),
-            'items'       => $items,
-            'alignment'   => $this->oneOf((string) ($settings['alignment'] ?? 'left'), ['left', 'center', 'right'], 'left'),
-            'size'        => $this->oneOf((string) ($settings['size'] ?? 'medium'), ['small', 'medium', 'large'], 'medium'),
-            'show_labels' => ! empty($settings['show_labels']),
+            'heading' => (string) ($settings['heading'] ?? ''),
+            'items'   => $items,
         ];
 
         $this->renderTemplate('badges', $context);
@@ -147,9 +116,7 @@ final class BadgesService implements HasHooks
     /**
      * Build the ordered list of renderable badge items from the settings.
      *
-     * Each item is one of:
-     *  - ['type' => 'svg',   'slug' => string, 'svg' => string, 'label' => string]
-     *  - ['type' => 'image', 'url' => string,  'label' => string]
+     * Each item is: ['slug' => string, 'svg' => string, 'label' => string].
      *
      * @param array<string, mixed> $settings
      * @return list<array<string, string>>
@@ -168,34 +135,9 @@ final class BadgesService implements HasHooks
             }
 
             $items[] = [
-                'type'  => 'svg',
                 'slug'  => $slug,
                 'svg'   => BadgeLibrary::svg($slug),
                 'label' => BadgeLibrary::label($slug),
-            ];
-        }
-
-        $custom = isset($settings['custom_badges']) && is_array($settings['custom_badges']) ? $settings['custom_badges'] : [];
-
-        foreach ($custom as $attachmentId) {
-            $attachmentId = (int) $attachmentId;
-
-            if ($attachmentId <= 0) {
-                continue;
-            }
-
-            $url = wp_get_attachment_image_url($attachmentId, 'medium');
-
-            if (! is_string($url) || $url === '') {
-                continue;
-            }
-
-            $alt = get_post_meta($attachmentId, '_wp_attachment_image_alt', true);
-
-            $items[] = [
-                'type'  => 'image',
-                'url'   => $url,
-                'label' => is_string($alt) ? $alt : '',
             ];
         }
 
@@ -225,14 +167,6 @@ final class BadgesService implements HasHooks
         $color = sanitize_hex_color($value);
 
         return is_string($color) ? $color : '';
-    }
-
-    /**
-     * @param list<string> $allowed
-     */
-    private function oneOf(string $value, array $allowed, string $fallback): string
-    {
-        return in_array($value, $allowed, true) ? $value : $fallback;
     }
 
     /**
