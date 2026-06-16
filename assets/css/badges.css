@@ -15,8 +15,10 @@
 
 .trust-badges {
 	/* Seal ink — engraved certificate green, NOT a default UI blue. Falls back
-	   to the theme's own accent token where a theme exposes one. */
-	--trust-seal: var(--wp--preset--color--primary, #1f6f5c);
+	   to the theme's own accent token where a theme exposes one. Deepened so the
+	   muted heading/label (rendered at <1 opacity) still clear WCAG AA 4.5:1 on
+	   the certificate-paper ground. */
+	--trust-seal: var(--wp--preset--color--primary, #155041);
 	--trust-icon-color: var(--trust-seal);
 
 	/* Warm certificate-paper ground + hairline engraving rule. */
