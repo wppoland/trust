@@ -7,7 +7,13 @@
  */
 
 .trust-admin {
-	--trust-a-accent: #2271b1;
+	/*
+	 * Section accent. Matches the storefront seal green (#155041) for family
+	 * consistency. Computed WCAG against wp-admin surfaces: 9.31:1 on #fff and
+	 * 8.17:1 on #f0f0f1 — well past AA for text (4.5:1) and UI (3:1). It does
+	 * not clash with WP's admin colour schemes, which only recolour chrome.
+	 */
+	--trust-a-accent: #155041;
 	--trust-a-radius: 10px;
 	--trust-a-radius-sm: 6px;
 	--trust-a-gap: clamp(1rem, 2vw, 1.5rem);
@@ -77,6 +83,25 @@
 	margin-block-start: 0.25rem;
 }
 
+/* Inline "this is what shoppers see" example under the heading field. */
+.trust-admin__example {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin-block-start: 0.5rem;
+	padding: 0.35rem 0.6rem;
+	font-size: 0.85rem;
+	color: var(--trust-a-accent);
+	background: color-mix(in srgb, var(--trust-a-accent) 8%, transparent);
+	border: 1px solid color-mix(in srgb, var(--trust-a-accent) 35%, transparent);
+	border-radius: var(--trust-a-radius-sm);
+}
+
+.trust-admin__example svg {
+	inline-size: 16px;
+	block-size: 16px;
+}
+
 /* Badge picker grid. */
 .trust-badge-picker {
 	display: grid;
@@ -132,6 +157,8 @@
 
 @media (prefers-color-scheme: dark) {
 	.trust-admin {
+		/* Lifted seal green for dark surfaces: 9.35:1 on #1e1e1e (AA pass). */
+		--trust-a-accent: #5fd6b6;
 		--trust-a-card-bg: #1e1e1e;
 		--trust-a-card-border: #3c434a;
 		--trust-a-muted: #a7aaad;

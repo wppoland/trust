@@ -128,7 +128,8 @@ final class Settings implements HasHooks
                 <?php settings_fields(self::PAGE); ?>
 
                 <div class="trust-card">
-                    <h2><?php esc_html_e('General', 'trust'); ?></h2>
+                    <h2><?php esc_html_e('Display', 'trust'); ?></h2>
+                    <p class="trust-card__intro"><?php esc_html_e('Trust works out of the box: leaving everything at its defaults shows four secure-checkout badges under the add-to-cart button. Adjust below only if you want to change what appears or where.', 'trust'); ?></p>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
@@ -148,7 +149,7 @@ final class Settings implements HasHooks
                                         <input type="checkbox" id="trust_show_on_product" name="<?php echo esc_attr(self::OPTION); ?>[show_on_product]" value="1" <?php checked((bool) ($settings['show_on_product'] ?? false), true); ?> />
                                         <?php esc_html_e('Show the badge row after the add-to-cart button on single product pages.', 'trust'); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('You can also place the row anywhere with the [trust_badges] shortcode.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Turn this off to keep the badges out of the product template and place them yourself with the [trust_badges] shortcode — for example inside a footer or a block.', 'trust'); ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -157,7 +158,21 @@ final class Settings implements HasHooks
                                 </th>
                                 <td>
                                     <input type="text" id="trust_heading" name="<?php echo esc_attr(self::OPTION); ?>[heading]" value="<?php echo esc_attr((string) ($settings['heading'] ?? '')); ?>" class="regular-text" />
-                                    <p class="description"><?php esc_html_e('Short reassurance shown above the badges, e.g. “Guaranteed safe checkout”. Leave empty to show only the icons.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Short reassurance shown above the badges. Keep it under a line so it reads at a glance; leave it empty to show the icons on their own.', 'trust'); ?></p>
+                                    <span class="trust-admin__example">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                            <path d="M12 3 5 6v5c0 4.2 2.9 8.1 7 9 4.1-.9 7-4.8 7-9V6l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                            <path d="m9 12 2.2 2.2L15 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <?php
+                                        $headingPreview = trim((string) ($settings['heading'] ?? ''));
+                                        echo esc_html(
+                                            $headingPreview !== ''
+                                                ? $headingPreview
+                                                : __('Guaranteed safe checkout', 'trust')
+                                        );
+                                        ?>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -166,7 +181,7 @@ final class Settings implements HasHooks
                                 </th>
                                 <td>
                                     <input type="color" id="trust_icon_color" name="<?php echo esc_attr(self::OPTION); ?>[icon_color]" value="<?php echo esc_attr($this->colorValue((string) ($settings['icon_color'] ?? '#3c4858'))); ?>" />
-                                    <p class="description"><?php esc_html_e('Colour for the bundled SVG icons and heading.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Tints the icons and heading. Pick a shade that stays readable against your product page background — a dark slate or your brand colour usually works best.', 'trust'); ?></p>
                                 </td>
                             </tr>
                         </tbody>
