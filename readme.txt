@@ -9,20 +9,22 @@ Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Show trust and secure-checkout badges to boost buyer confidence and conversions.
+Add a row of secure-checkout badges after the add-to-cart button to reassure shoppers about payment safety.
 
 == Description ==
 
-Trust adds a row of reassuring secure-checkout badges after the add-to-cart button, with a short heading such as "Guaranteed safe checkout". Shoppers see, right at the moment they decide to buy, that your store is safe — which lifts conversions.
+Trust shows a row of secure-checkout badges after the add-to-cart button, under a short heading like "Guaranteed safe checkout". The idea is simple: put a reminder that the store is safe right where the shopper decides whether to buy.
 
-The plugin ships a set of clean, hand-drawn inline SVG badges (secure checkout, SSL encrypted, money-back guarantee, verified store, free shipping, card payment, digital wallet, support, privacy and satisfaction). Pick the ones you want, write a heading and choose a colour.
+The plugin includes ten hand-drawn inline SVG badges: secure checkout, SSL encrypted, money-back guarantee, verified store, free shipping, card payment, digital wallet, 24/7 support, privacy protected and satisfaction. You pick which ones to show, write the heading (or leave it blank for icons only) and set the icon colour.
 
-= Pure presentation, zero bloat =
+It is built to stay out of the way:
 
-* **No external requests.** All bundled badges are inline SVGs served from your own site. Nothing is loaded from third parties, so there is no tracking and no privacy concern.
-* **No layout shift (CLS).** The badge row is CSS-only with no JavaScript on the storefront.
-* **Accessible.** Each badge exposes an accessible name and the row uses a semantic list. Motion respects `prefers-reduced-motion`.
-* **Themeable.** Choose the icon colour; badges inherit it via `currentColor`.
+* **No external requests.** The badges are inline SVGs served from your own site, so nothing loads from third parties and there is nothing to track.
+* **No JavaScript on the storefront.** The badge row is plain CSS, so it does not add a script or shift the layout as the page loads.
+* **Accessible.** Each badge has an accessible name and the row is marked up as a list. The small hover animation is skipped for visitors who set `prefers-reduced-motion`.
+* **Inherits your colour.** Set one colour and every badge follows it via `currentColor`.
+
+Trust is not yet on the WordPress.org directory. The source lives on GitHub at https://github.com/wppoland/trust if you want to read the code or report a bug.
 
 = Where badges appear =
 
