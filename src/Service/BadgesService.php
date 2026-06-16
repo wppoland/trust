@@ -156,9 +156,11 @@ final class BadgesService implements HasHooks
             return;
         }
 
+        // Override the seal token so the whole strip (ink, paper ground,
+        // engraved rule and the lead-seal ring) re-themes from one colour.
         wp_add_inline_style(
             'trust-badges',
-            sprintf('.trust-badges{--trust-icon-color:%s;}', $color),
+            sprintf('.trust-badges{--trust-seal:%s;}', $color),
         );
     }
 
