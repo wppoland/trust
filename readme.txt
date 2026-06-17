@@ -73,6 +73,10 @@ A curated set of inline SVG icons (secure checkout, shipping, returns and simila
 1. The trust-badge row beneath the add-to-cart button on a single product page.
 2. The Trust Badges settings screen.
 
+== External Services ==
+
+Trust does not connect to any external services. Every badge is a bundled inline SVG served from your own site, so the storefront output loads nothing from third parties and the plugin makes no network requests. Your choices (the heading, selected badges and icon colour) are kept on your own site in a single `trust_settings` option, alongside a `trust_db_version` marker; both are removed when you delete the plugin. The plugin sends no email and stores no visitor or customer data.
+
 == Changelog ==
 
 = 0.1.0 =
