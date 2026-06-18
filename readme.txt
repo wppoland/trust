@@ -26,6 +26,15 @@ It is built to stay out of the way:
 
 Trust is not yet on the WordPress.org directory. The source lives on GitHub at https://github.com/wppoland/trust if you want to read the code or report a bug.
 
+= Documentation and links =
+
+* **Documentation** - https://plogins.com/trust/docs/
+* **Plugin page** - https://plogins.com/trust/
+* **Source code** - https://github.com/wppoland/trust
+* **Bug reports and feature requests** - https://github.com/wppoland/trust/issues
+* **Discussions and questions** - https://github.com/wppoland/trust/discussions
+
+
 = Where badges appear =
 
 * Single product page — after the add-to-cart button.
