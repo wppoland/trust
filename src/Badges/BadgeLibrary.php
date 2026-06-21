@@ -81,7 +81,15 @@ final class BadgeLibrary
             ],
         ];
 
-        return self::$badges;
+        /**
+         * Filter the bundled badge library.
+         *
+         * Add-ons can append generic inline SVG badges. The array is keyed by
+         * slug and each item must contain a label and trusted SVG markup.
+         *
+         * @param array<string, array{label: string, svg: string}> $badges Badge definitions.
+         */
+        return (array) apply_filters('trust/badge_library', self::$badges);
     }
 
     public static function has(string $slug): bool
