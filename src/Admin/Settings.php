@@ -139,7 +139,7 @@ final class Settings implements HasHooks
                                         <input type="checkbox" id="trust_enabled" name="<?php echo esc_attr(self::OPTION); ?>[enabled]" value="1" <?php checked((bool) ($settings['enabled'] ?? false), true); ?> />
                                         <?php esc_html_e('Show the trust-badge row on the storefront.', 'trust'); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('When off, no badges and no stylesheet load anywhere — the storefront is completely unaffected.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('When off, no badges and no stylesheet load anywhere, the storefront is completely unaffected.', 'trust'); ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -149,7 +149,7 @@ final class Settings implements HasHooks
                                         <input type="checkbox" id="trust_show_on_product" name="<?php echo esc_attr(self::OPTION); ?>[show_on_product]" value="1" <?php checked((bool) ($settings['show_on_product'] ?? false), true); ?> />
                                         <?php esc_html_e('Show the badge row after the add-to-cart button on single product pages.', 'trust'); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('Turn this off to keep the badges out of the product template and place them yourself with the [trust_badges] shortcode — for example inside a footer or a block.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Turn this off to keep the badges out of the product template and place them yourself with the [trust_badges] shortcode, for example inside a footer or a block.', 'trust'); ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -181,7 +181,7 @@ final class Settings implements HasHooks
                                 </th>
                                 <td>
                                     <input type="color" id="trust_icon_color" name="<?php echo esc_attr(self::OPTION); ?>[icon_color]" value="<?php echo esc_attr($this->colorValue((string) ($settings['icon_color'] ?? '#3c4858'))); ?>" />
-                                    <p class="description"><?php esc_html_e('Tints the icons and heading. Pick a shade that stays readable against your product page background — a dark slate or your brand colour usually works best.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Tints the icons and heading. Pick a shade that stays readable against your product page background, a dark slate or your brand colour usually works best.', 'trust'); ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -218,7 +218,7 @@ final class Settings implements HasHooks
 
                 <div class="trust-card">
                     <h2><?php esc_html_e('Badges', 'trust'); ?></h2>
-                    <p class="trust-card__intro"><?php esc_html_e('Choose which bundled badges to show. They are safe inline graphics — no external requests and no third-party logos.', 'trust'); ?></p>
+                    <p class="trust-card__intro"><?php esc_html_e('Choose which bundled badges to show. They are safe inline graphics, no external requests and no third-party logos.', 'trust'); ?></p>
 
                     <fieldset class="trust-badge-picker">
                         <legend class="screen-reader-text"><?php esc_html_e('Bundled badges', 'trust'); ?></legend>

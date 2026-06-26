@@ -88,10 +88,10 @@ msgstr "Wyświetlaj rząd odznak zaufania w sklepie."
 
 #: src/Admin/Settings.php:142
 msgid ""
-"When off, no badges and no stylesheet load anywhere — the storefront is "
+"When off, no badges and no stylesheet load anywhere, the storefront is "
 "completely unaffected."
 msgstr ""
-"Po wyłączeniu nigdzie nie wczytują się żadne odznaki ani arkusz stylów — "
+"Po wyłączeniu nigdzie nie wczytują się żadne odznaki ani arkusz stylów, "
 "sklep pozostaje całkowicie nienaruszony."
 
 #: src/Admin/Settings.php:146
@@ -108,7 +108,7 @@ msgstr ""
 #: src/Admin/Settings.php:152
 msgid ""
 "Turn this off to keep the badges out of the product template and place them "
-"yourself with the [trust_badges] shortcode — for example inside a footer or "
+"yourself with the [trust_badges] shortcode, for example inside a footer or "
 "a block."
 msgstr ""
 
@@ -133,7 +133,7 @@ msgstr "Kolor ikon"
 #: src/Admin/Settings.php:184
 msgid ""
 "Tints the icons and heading. Pick a shade that stays readable against your "
-"product page background — a dark slate or your brand colour usually works "
+"product page background, a dark slate or your brand colour usually works "
 "best."
 msgstr ""
 
@@ -143,11 +143,11 @@ msgstr "Odznaki"
 
 #: src/Admin/Settings.php:193
 msgid ""
-"Choose which bundled badges to show. They are safe inline graphics — no "
+"Choose which bundled badges to show. They are safe inline graphics, no "
 "external requests and no third-party logos."
 msgstr ""
 "Wybierz, które dołączone odznaki wyświetlać. Są to bezpieczne grafiki "
-"osadzone bezpośrednio — bez żądań zewnętrznych i bez logo firm trzecich."
+"osadzone bezpośrednio, bez żądań zewnętrznych i bez logo firm trzecich."
 
 #: src/Admin/Settings.php:196
 msgid "Bundled badges"
