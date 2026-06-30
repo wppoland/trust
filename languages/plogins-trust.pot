@@ -12,30 +12,30 @@ msgstr ""
 "POT-Creation-Date: 2026-06-16T20:23:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: trust\n"
+"X-Domain: plogins-trust\n"
 
 #. Plugin Name of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "Trust - Trust Badges for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "https://plogins.com/trust/"
 msgstr ""
 
 #. Description of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "Show trust and secure-checkout badges to boost buyer confidence and conversions."
 msgstr ""
 
 #. Author of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "WPPoland"
 msgstr ""
 
 #. Author URI of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "https://plogins.com/"
 msgstr ""
 
@@ -160,6 +160,6 @@ msgstr ""
 msgid "Satisfaction (thumbs up)"
 msgstr ""
 
-#: trust.php:47
+#: plogins-trust.php:47
 msgid "Trust - Trust Badges for WooCommerce requires WooCommerce to be active."
 msgstr ""

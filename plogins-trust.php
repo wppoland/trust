@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Trust - Trust Badges for WooCommerce
- * Plugin URI:        https://plogins.com/trust/
+ * Plugin Name:       Plogins Trust for WooCommerce
+ * Plugin URI:        https://plogins.com/plogins-trust/
  * Description:        Show trust and secure-checkout badges to boost buyer confidence and conversions.
- * Version:           0.1.3
+ * Version:           0.1.4
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -11,7 +11,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       trust
+ * Text Domain:       plogins-trust
  * Domain Path:       /languages
  * WC requires at least: 8.0
  *
@@ -24,7 +24,7 @@ namespace Trust;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.3';
+const VERSION     = '0.1.4';
 const PLUGIN_FILE = __FILE__;
 
 define('TRUST_DIR', plugin_dir_path(__FILE__));
@@ -44,7 +44,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Trust - Trust Badges for WooCommerce requires WooCommerce to be active.', 'trust');
+            echo esc_html__('Trust - Trust Badges for WooCommerce requires WooCommerce to be active.', 'plogins-trust');
             echo '</p></div>';
         });
         return;

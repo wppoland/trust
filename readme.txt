@@ -1,10 +1,10 @@
-=== Trust - Trust Badges for WooCommerce ===
+=== Plogins Trust for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, trust badges, secure checkout, conversion, ecommerce
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -24,15 +24,14 @@ It is built to stay out of the way:
 * **Accessible.** Each badge has an accessible name and the row is marked up as a list. The small hover animation is skipped for visitors who set `prefers-reduced-motion`.
 * **Inherits your colour.** Set one colour and every badge follows it via `currentColor`.
 
-Trust is not yet on the WordPress.org directory. The source lives on GitHub at https://github.com/wppoland/trust if you want to read the code or report a bug.
+Trust is not yet on the WordPress.org directory. The source lives on GitHub at https://github.com/wppoland/plogins-trust if you want to read the code or report a bug.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/trust/docs/
-* **Plugin page** - https://plogins.com/trust/
-* **Source code** - https://github.com/wppoland/trust
-* **Bug reports and feature requests** - https://github.com/wppoland/trust/issues
-* **Discussions and questions** - https://github.com/wppoland/trust/discussions
+* **Documentation** - https://plogins.com/plogins-trust/docs/
+* **Plugin page** - https://plogins.com/plogins-trust/
+* **Source code** - https://github.com/wppoland/plogins-trust
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-trust/issues
 
 
 = Where badges appear =
@@ -87,6 +86,9 @@ A curated set of inline SVG icons (secure checkout, shipping, returns and simila
 Trust does not connect to any external services. Every badge is a bundled inline SVG served from your own site, so the storefront output loads nothing from third parties and the plugin makes no network requests. Your choices (the heading, selected badges and icon colour) are kept on your own site in a single `trust_settings` option, alongside a `trust_db_version` marker; both are removed when you delete the plugin. The plugin sends no email and stores no visitor or customer data.
 
 == Changelog ==
+
+= 0.1.4 =
+* Renamed to Plogins Trust for WooCommerce for a more distinctive plugin name.
 
 = 0.1.3 =
 * Add `trust/badge_library` filter so add-ons can append safe inline SVG badges to the shared picker and renderer.

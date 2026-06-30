@@ -43,7 +43,7 @@ final class Settings implements HasHooks
         $settingsLink = sprintf(
             '<a href="%s">%s</a>',
             esc_url($url),
-            esc_html__('Settings', 'trust'),
+            esc_html__('Settings', 'plogins-trust'),
         );
 
         array_unshift($links, $settingsLink);
@@ -55,8 +55,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Trust Badges', 'trust'),
-            __('Trust Badges', 'trust'),
+            __('Trust Badges', 'plogins-trust'),
+            __('Trust Badges', 'plogins-trust'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -119,8 +119,8 @@ final class Settings implements HasHooks
                     </svg>
                 </span>
                 <div class="trust-admin__intro-text">
-                    <h2><?php esc_html_e('Reassure shoppers at the moment they decide to buy', 'trust'); ?></h2>
-                    <p><?php esc_html_e('Trust shows a row of secure-checkout badges with a short heading after the add-to-cart button. Pick the badges, write the heading and choose the colour.', 'trust'); ?></p>
+                    <h2><?php esc_html_e('Reassure shoppers at the moment they decide to buy', 'plogins-trust'); ?></h2>
+                    <p><?php esc_html_e('Trust shows a row of secure-checkout badges with a short heading after the add-to-cart button. Pick the badges, write the heading and choose the colour.', 'plogins-trust'); ?></p>
                 </div>
             </div>
 
@@ -128,37 +128,37 @@ final class Settings implements HasHooks
                 <?php settings_fields(self::PAGE); ?>
 
                 <div class="trust-card">
-                    <h2><?php esc_html_e('Display', 'trust'); ?></h2>
-                    <p class="trust-card__intro"><?php esc_html_e('Trust works out of the box: leaving everything at its defaults shows four secure-checkout badges under the add-to-cart button. Adjust below only if you want to change what appears or where.', 'trust'); ?></p>
+                    <h2><?php esc_html_e('Display', 'plogins-trust'); ?></h2>
+                    <p class="trust-card__intro"><?php esc_html_e('Trust works out of the box: leaving everything at its defaults shows four secure-checkout badges under the add-to-cart button. Adjust below only if you want to change what appears or where.', 'plogins-trust'); ?></p>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Enable trust badges', 'trust'); ?></th>
+                                <th scope="row"><?php esc_html_e('Enable trust badges', 'plogins-trust'); ?></th>
                                 <td>
                                     <label for="trust_enabled">
                                         <input type="checkbox" id="trust_enabled" name="<?php echo esc_attr(self::OPTION); ?>[enabled]" value="1" <?php checked((bool) ($settings['enabled'] ?? false), true); ?> />
-                                        <?php esc_html_e('Show the trust-badge row on the storefront.', 'trust'); ?>
+                                        <?php esc_html_e('Show the trust-badge row on the storefront.', 'plogins-trust'); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('When off, no badges and no stylesheet load anywhere, the storefront is completely unaffected.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('When off, no badges and no stylesheet load anywhere, the storefront is completely unaffected.', 'plogins-trust'); ?></p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Show on product pages', 'trust'); ?></th>
+                                <th scope="row"><?php esc_html_e('Show on product pages', 'plogins-trust'); ?></th>
                                 <td>
                                     <label for="trust_show_on_product">
                                         <input type="checkbox" id="trust_show_on_product" name="<?php echo esc_attr(self::OPTION); ?>[show_on_product]" value="1" <?php checked((bool) ($settings['show_on_product'] ?? false), true); ?> />
-                                        <?php esc_html_e('Show the badge row after the add-to-cart button on single product pages.', 'trust'); ?>
+                                        <?php esc_html_e('Show the badge row after the add-to-cart button on single product pages.', 'plogins-trust'); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('Turn this off to keep the badges out of the product template and place them yourself with the [trust_badges] shortcode, for example inside a footer or a block.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Turn this off to keep the badges out of the product template and place them yourself with the [trust_badges] shortcode, for example inside a footer or a block.', 'plogins-trust'); ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="trust_heading"><?php esc_html_e('Heading', 'trust'); ?></label>
+                                    <label for="trust_heading"><?php esc_html_e('Heading', 'plogins-trust'); ?></label>
                                 </th>
                                 <td>
                                     <input type="text" id="trust_heading" name="<?php echo esc_attr(self::OPTION); ?>[heading]" value="<?php echo esc_attr((string) ($settings['heading'] ?? '')); ?>" class="regular-text" />
-                                    <p class="description"><?php esc_html_e('Short reassurance shown above the badges. Keep it under a line so it reads at a glance; leave it empty to show the icons on their own.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Short reassurance shown above the badges. Keep it under a line so it reads at a glance; leave it empty to show the icons on their own.', 'plogins-trust'); ?></p>
                                     <span class="trust-admin__example">
                                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                             <path d="M12 3 5 6v5c0 4.2 2.9 8.1 7 9 4.1-.9 7-4.8 7-9V6l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
@@ -169,7 +169,7 @@ final class Settings implements HasHooks
                                         echo esc_html(
                                             $headingPreview !== ''
                                                 ? $headingPreview
-                                                : __('Guaranteed safe checkout', 'trust')
+                                                : __('Guaranteed safe checkout', 'plogins-trust')
                                         );
                                         ?>
                                     </span>
@@ -177,37 +177,37 @@ final class Settings implements HasHooks
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="trust_icon_color"><?php esc_html_e('Icon colour', 'trust'); ?></label>
+                                    <label for="trust_icon_color"><?php esc_html_e('Icon colour', 'plogins-trust'); ?></label>
                                 </th>
                                 <td>
                                     <input type="color" id="trust_icon_color" name="<?php echo esc_attr(self::OPTION); ?>[icon_color]" value="<?php echo esc_attr($this->colorValue((string) ($settings['icon_color'] ?? '#3c4858'))); ?>" />
-                                    <p class="description"><?php esc_html_e('Tints the icons and heading. Pick a shade that stays readable against your product page background, a dark slate or your brand colour usually works best.', 'trust'); ?></p>
+                                    <p class="description"><?php esc_html_e('Tints the icons and heading. Pick a shade that stays readable against your product page background, a dark slate or your brand colour usually works best.', 'plogins-trust'); ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="trust_schedule_start"><?php esc_html_e('Schedule start', 'trust'); ?></label>
+                                    <label for="trust_schedule_start"><?php esc_html_e('Schedule start', 'plogins-trust'); ?></label>
                                 </th>
                                 <td>
                                     <input type="datetime-local" id="trust_schedule_start" name="<?php echo esc_attr(self::OPTION); ?>[schedule_start]" value="<?php echo esc_attr((string) ($settings['schedule_start'] ?? '')); ?>" <?php disabled(! class_exists(\Trust\Pro\ProPlugin::class)); ?> />
                                     <p class="description">
-                                        <?php esc_html_e('Optional date and time when the badges should start showing (in store timezone).', 'trust'); ?>
+                                        <?php esc_html_e('Optional date and time when the badges should start showing (in store timezone).', 'plogins-trust'); ?>
                                         <?php if (! class_exists(\Trust\Pro\ProPlugin::class)) : ?>
-                                            <span style="color:#d63638;font-weight:600;"><?php esc_html_e('Requires Trust Pro.', 'trust'); ?></span>
+                                            <span style="color:#d63638;font-weight:600;"><?php esc_html_e('Requires Trust Pro.', 'plogins-trust'); ?></span>
                                         <?php endif; ?>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="trust_schedule_end"><?php esc_html_e('Schedule end', 'trust'); ?></label>
+                                    <label for="trust_schedule_end"><?php esc_html_e('Schedule end', 'plogins-trust'); ?></label>
                                 </th>
                                 <td>
                                     <input type="datetime-local" id="trust_schedule_end" name="<?php echo esc_attr(self::OPTION); ?>[schedule_end]" value="<?php echo esc_attr((string) ($settings['schedule_end'] ?? '')); ?>" <?php disabled(! class_exists(\Trust\Pro\ProPlugin::class)); ?> />
                                     <p class="description">
-                                        <?php esc_html_e('Optional date and time when the badges should stop showing (in store timezone).', 'trust'); ?>
+                                        <?php esc_html_e('Optional date and time when the badges should stop showing (in store timezone).', 'plogins-trust'); ?>
                                         <?php if (! class_exists(\Trust\Pro\ProPlugin::class)) : ?>
-                                            <span style="color:#d63638;font-weight:600;"><?php esc_html_e('Requires Trust Pro.', 'trust'); ?></span>
+                                            <span style="color:#d63638;font-weight:600;"><?php esc_html_e('Requires Trust Pro.', 'plogins-trust'); ?></span>
                                         <?php endif; ?>
                                     </p>
                                 </td>
@@ -217,11 +217,11 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="trust-card">
-                    <h2><?php esc_html_e('Badges', 'trust'); ?></h2>
-                    <p class="trust-card__intro"><?php esc_html_e('Choose which bundled badges to show. They are safe inline graphics, no external requests and no third-party logos.', 'trust'); ?></p>
+                    <h2><?php esc_html_e('Badges', 'plogins-trust'); ?></h2>
+                    <p class="trust-card__intro"><?php esc_html_e('Choose which bundled badges to show. They are safe inline graphics, no external requests and no third-party logos.', 'plogins-trust'); ?></p>
 
                     <fieldset class="trust-badge-picker">
-                        <legend class="screen-reader-text"><?php esc_html_e('Bundled badges', 'trust'); ?></legend>
+                        <legend class="screen-reader-text"><?php esc_html_e('Bundled badges', 'plogins-trust'); ?></legend>
                         <?php foreach (BadgeLibrary::all() as $slug => $badge) : ?>
                             <label class="trust-badge-option" for="<?php echo esc_attr('trust_badge_' . $slug); ?>">
                                 <input

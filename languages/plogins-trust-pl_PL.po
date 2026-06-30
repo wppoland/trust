@@ -13,22 +13,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: trust\n"
+"X-Domain: plogins-trust\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
 
 #. Plugin Name of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "Trust - Trust Badges for WooCommerce"
 msgstr "Trust - Odznaki zaufania dla WooCommerce"
 
 #. Plugin URI of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "https://plogins.com/trust/"
 msgstr "https://plogins.com/trust/"
 
 #. Description of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid ""
 "Show trust and secure-checkout badges to boost buyer confidence and "
 "conversions."
@@ -37,12 +37,12 @@ msgstr ""
 "kupujących i konwersję."
 
 #. Author of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "WPPoland"
 msgstr "WPPoland"
 
 #. Author URI of the plugin
-#: trust.php
+#: plogins-trust.php
 msgid "https://plogins.com/"
 msgstr "https://plogins.com/"
 
@@ -193,7 +193,7 @@ msgstr "Ochrona prywatności"
 msgid "Satisfaction (thumbs up)"
 msgstr "Satysfakcja (kciuk w górę)"
 
-#: trust.php:47
+#: plogins-trust.php:47
 msgid "Trust - Trust Badges for WooCommerce requires WooCommerce to be active."
 msgstr "Trust - Odznaki zaufania dla WooCommerce wymaga aktywnego WooCommerce."
 
