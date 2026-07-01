@@ -76,6 +76,11 @@ Yes. Use the `[trust_badges]` shortcode to render the row anywhere shortcodes ar
 
 A curated set of inline SVG icons (secure checkout, shipping, returns and similar). Choose which to show in settings.
 
+
+= Does this plugin work on WordPress Multisite? =
+
+Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data.
+
 == Screenshots ==
 
 1. The trust-badge row beneath the add-to-cart button on a single product page.
